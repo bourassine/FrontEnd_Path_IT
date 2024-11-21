@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import AdminPage from './components/AdminPage';
+import Questionnaire from './components/Questionnaire';
+import Toggle from './components/Toggle';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+    const [isActive, setIsActive] = useState(false);
+
+    const handleRegister = () => {
+      console.log("Switching to Register");
+      setIsActive(true);
+  };
+  const handleLogin = () => {
+      console.log("Switching to Login");
+      setIsActive(false);
+  };
+  
+
+    return (
+        <Router>
+            <div className={`container ${isActive ? 'active' : ''}`} id="container">
+                {/* Toggle Component for visual interaction */}
+                <Toggle onRegister={handleRegister} onLogin={handleLogin} />
+
+                {/* Routes */}
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/Login" element={<Login />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/questionnaire" element={<Questionnaire />} />
+                </Routes>
+            </div>
+        </Router>
+    );
+};
 
 export default App;

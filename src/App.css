@@ -42,4 +42,43 @@ button {
     opacity: 0;
     transition: opacity 300ms ease-in;
   }
+  .fade-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.fade-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}
+.Toastify__toast-container {
+  position: fixed !important; /* Pour s'assurer qu'il est indépendant */
+  top: 1rem !important;       /* Alignement en haut */
+  right: 1rem !important;     /* Alignement à droite */
+  z-index: 9999 !important;   /* Toujours au-dessus de tout */
+  width: auto !important;     /* Taille adaptable */
+  pointer-events: none;       /* Ignorer les clics derrière */
+}
+
+.Toastify__toast {
+  pointer-events: auto; /* Gérer les clics sur le toast */
+}
+
+
+
+
+
+
+
+
+
   

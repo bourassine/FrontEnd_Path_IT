@@ -7,6 +7,8 @@ import Register from './components/Auth/Register';
 import AdminPage from './components/Admin/AdminPage';
 import Questionnaire from './components/User/QuestIA/Questionnaire';
 import Toggle from './components/Auth/Toggle';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
                     <Toggle onRegister={handleRegister} onLogin={handleLogin} />
                     {isActive ? <Register /> : <Login />}
                 </div>
+                
             )}
 
             {/* Other pages with transition effects */}
@@ -52,6 +55,20 @@ const App = () => {
 
 const AppWrapper = () => (
     <Router>
+     <div style={{ position: 'fixed', zIndex: 9999 }}>
+     <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
+            </div>
+       
         <Routes>
             <Route path="/*" element={<App />} />
         </Routes>

@@ -102,7 +102,7 @@ body{
 
 .container.active .sign-in{
     transform: translateX(100%);
-    background-color: red !important;
+   
     
 }
 
@@ -111,7 +111,7 @@ body{
     width: 50%;
     opacity: 0;
     z-index: 1;
-    background-color: red !important;
+  
 }
 
 .container.active .sign-up{
@@ -203,7 +203,7 @@ body{
 
 .container.active .toggle-left{
     transform: translateX(0);
-    background-color: red !important;
+   
 }
 
 .toggle-right{

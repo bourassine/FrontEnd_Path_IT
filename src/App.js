@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Import for transitions
+import Home from './components/Home/Home'; // Import Home component
 import Login from './components/Login';
 import Register from './components/Register';
 import AdminPage from './components/AdminPage';
@@ -14,7 +16,8 @@ const App = () => {
     const handleLogin = () => setIsActive(false);
 
     const location = useLocation();
-    const isAuthPage = location.pathname === '/' || location.pathname === '/register';
+    const isAuthPage =
+        location.pathname === '/login' || location.pathname === '/register';
 
     return (
         <div>
@@ -26,12 +29,22 @@ const App = () => {
                 </div>
             )}
 
-            {/* Other pages */}
+            {/* Other pages with transition effects */}
             {!isAuthPage && (
-                <Routes>
-                    <Route path="/admin" element={<AdminPage />} />
-                    <Route path="/questionnaire" element={<Questionnaire />} />
-                </Routes>
+                <TransitionGroup>
+                    <CSSTransition
+                        key={location.key}
+                        timeout={300}
+                        classNames="fade"
+                        unmountOnExit
+                    >
+                        <Routes location={location}>
+                            <Route path="/" element={<Home />} /> {/* Home page */}
+                            <Route path="/admin" element={<AdminPage />} />
+                            <Route path="/questionnaire" element={<Questionnaire />} />
+                        </Routes>
+                    </CSSTransition>
+                </TransitionGroup>
             )}
         </div>
     );

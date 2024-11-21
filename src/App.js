@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Import for transitions
 import Home from './components/Home/Home'; // Import Home component
-import Login from './components/Login';
-import Register from './components/Register';
-import AdminPage from './components/AdminPage';
-import Questionnaire from './components/Questionnaire';
-import Toggle from './components/Toggle';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import AdminPage from './components/Admin/AdminPage';
+import Questionnaire from './components/User/QuestIA/Questionnaire';
+import Toggle from './components/Auth/Toggle';
 import './App.css';
 
 const App = () => {

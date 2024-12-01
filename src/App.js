@@ -18,6 +18,7 @@ const App = () => {
     const handleLogin = () => setIsActive(false);
 
     const location = useLocation();
+    
     const isAuthPage =
         location.pathname === '/login' || location.pathname === '/register';
 

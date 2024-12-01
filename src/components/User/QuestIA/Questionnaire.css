@@ -1,0 +1,186 @@
+
+
+.questionnaire-container {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 50px 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.15); /* Softer shadow for a modern look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.questionnaire-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 16px 50px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.question-text {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.option-button {
+    background: #f9f9ff;
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-button:hover {
+    background: #6c63ff;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(108, 99, 255, 0.3); /* Button shadow effect */
+}
+
+.back-button {
+    margin-top: 25px;
+    background: #fef7f7;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #ff6b6b;
+    color: #ffffff;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    transition: width 0.5s ease-in-out;
+}
+
+/* Form-specific styling (for input fields) */
+form input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+form input:focus {
+    outline: none;
+    border: 2px solid #6c63ff;
+    box-shadow: 0px 4px 10px rgba(108, 99, 255, 0.1);
+}
+
+form button {
+    background: #6c63ff;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #5846cc;
+    box-shadow: 0px 6px 15px rgba(108, 99, 255, 0.3);
+}
+.step-progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+    width: 20%; /* Adjust based on the number of steps */
+}
+
+.step .circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #888;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.step.active .circle {
+    border-color: #4caf50;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.step .label {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.step.active .label {
+    color: #4caf50;
+}
+
+.step:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -50%;
+    width: 100%;
+    height: 3px;
+    background: #e0e0e0;
+    z-index: -1;
+}
+
+.step:first-child:before {
+    content: none;
+}
+
+.step.active:before {
+    background: #4caf50;
+}
